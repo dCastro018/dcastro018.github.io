@@ -1,0 +1,128 @@
+
+header{
+    margin: 0px;
+    padding: 0px 0px;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0px;
+    
+}
+.header-container{
+    background-color: #1A0A37;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: right;
+    padding: 0px 0px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+nav{
+    display: flex;
+    gap: 3px;
+
+}
+
+nav a{
+    font-size: 30px;
+    color: white;
+    font-family: manjari;
+    padding: 20px;
+    text-decoration: none;
+    font-weight: lighter;
+}
+.main-container{
+    width: 100%;
+    height:100vh;
+    display: flex;
+    background-color:#FAEFFF;
+}
+
+.left {
+    padding: 150px 80px 30px 80px;
+    flex-direction: column;
+    flex: 50%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.left h1{
+    font-size: 70px;
+    font-family: manjari;
+   
+    text-decoration: none;
+    font-weight: bold;
+
+}
+
+.left p{
+    font-size: 24px;
+    padding: 10px;
+    font-family: manjari;
+    text-decoration: none;
+    font-weight: lighter;
+}
+    
+
+.right {
+    flex: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;     
+    padding: 0;              
+    height: 100%;
+     margin-top: -150px;         
+}
+@keyframes showTopText {
+  0%   { transform: translateY(-100%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes showBottomText {
+  0%   { transform: translateY(100%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.animated-title {
+  font-family: 'Manjari', sans-serif;
+  font-size: 64px;
+  font-weight: bold;
+  color: #1A0A37;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.text-top .line,
+.text-bottom .line {
+  overflow: hidden;
+  height: 70px; /* adjust based on font size */
+  position: relative;
+}
+
+.text-top .line span,
+.text-bottom .line span {
+  display: inline-block;
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.text-top .line:nth-child(1) span {
+  animation: showTopText 1s ease forwards;
+  animation-delay: 0.3s;
+}
+
+.text-top .line:nth-child(2) span {
+  animation: showTopText 1s ease forwards;
+  animation-delay: 0.6s;
+}
+
+.text-bottom .line span {
+  animation: showBottomText 1s ease forwards;
+  animation-delay: 1.2s;
+}
