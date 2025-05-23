@@ -8,15 +8,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Manjari&display=swap" rel="stylesheet">
     
 </head>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    const items = document.querySelectorAll('.timeline-item, .project-card');
+    items.forEach(item => observer.observe(item));
+  });
+</script>
+
+
+
+
 <body>
     <header margin="0">
         <div class="header-container">
             <nav>
-                <a href="home.html" class="active">Home</a>
-                <a href="experience.html">Experiences</a>
-                <a href="projects.html">Projects</a>
-                <a href="blog.html">Blog</a>
-                <a href="contact.html">Contact</a>
+                <a href="#experience">Experiences</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
             </nav>
         </div>
     </header>
@@ -36,10 +54,189 @@
 
             <p>Hello, my name is Dalia Castro. I am software engineer who enjoys tackling complex challenges and turning ideas into real world solutions. I’ve led and contributed to agile teams, building full stack applications from the ground up and integrating secure DevSecOps practices into the development pipeline. </p>
             <p>Explore my portfolio to see some of the work I’ve done!</p>
+            <p>
+              <a href="files/resume.pdf" download>
+              <button class="form-button">Download My Resume</button>
+              </a>
+            </p>
         </div>
         <div class="right">
             <img src="images\daliaimage.png" alt="Dalia Castro" class="profile-image">
         </div>
     </section>
+    <div class="divider"></div>
+    </div>
+        <section class="timeline_section" id="experience">
+            <h1>Experience</h1>
+            <div class="timeline">
+                 <div class="timeline-item">
+                    <span class="timeline-dot"></span>
+                    <div class="timeline-content">
+                        <h2>Avirtek</h2>
+                        <h3>Junior Software Developer</h3>
+                        <p class="date-location">Tucson, AZ | Aug 2024 – Dec 2025</p>
+                        <p>At Avirtek, I developed configuration pages for an anti-malware detection system using React and Material UI, enabling users to customize and manage system behavior through a clean, responsive interface. These pages connected to backend services via the Wazuh API, allowing real-time updates to threat detection policies and security settings. I collaborated with the engineering team to ensure secure, reliable API integration and focused on improving the overall usability of the platform for system administrators and security analysts.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                     <span class="timeline-dot"></span>
+                     <div class="timeline-content">
+                        <h2>AvMC Army Game Studio</h2>
+                        <h3>Lead Software Engineer</h3>
+                        <h4 class="date-location">Huntsville, AL | Jun 2024 – Aug 2025</h4>
+                        <p>At the Army Game Studio, I led a development team in building a digital board game that teaches students about the U.S. government acquisition process through interactive, turn-based gameplay. Using Unity and C#, I implemented core mechanics such as card interactions, currency management, and strategic player turns, while also designing and testing intuitive UI/UX elements. I collaborated with Army subject-matter experts to ensure the game aligned with real-world training goals. Our project was selected for presentation at the National Contract Management Association (NCMA) World Congress in Seattle and the DCTC Scholar Showcase in Washington, D.C., where I demonstrated the game to government professionals and academic leaders.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="divider"></div>
+    <div class="project_section" id="projects">
+        <h1>Projects</h1>
+        <div class="project-card project-card-right">
+            <img src="images/ot.png" alt="Wildcat Dam Project" class="project-image" />
+            <div class="project-content">
+                <h2 class="project-title">Wildcat Dam</h2>
+                <p class="project-description">Wildcat Dam is a research project sponsored by MITRE via the INSuRE program, focused on advancing cybersecurity testing for Industrial Control Systems (ICS). The project simulates a dam environment using Python and the Modbus TCP protocol,
+                enabling control of sluice gates based on real-time water level and surge inputs. Integrated with MITRE Caldera for OT, the virtual setup replicates PLC behavior and includes process logic, sensor emulation, and visualization tools.</p>
+                <a href="https://github.com/mitre/wildcatdam.git" class="project-link">View Source</a>
+                <div class="project-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Modbus TCP</span>
+                    <span class="tag">MITRE Caldera for OT</span>
+                </div>
+            </div>
+        </div>
+        <div class="project-card project-card-left">
+            <img src="images/neo-cath.png" alt="NeoCath App" class="project-image" />
+            <div class="project-content">
+                <h2 class="project-title">NeoCath App</h2>
+                <p class="project-description">
+                    For my senior capstone, I developed a mobile application that tracks the values of two temperature sensors and a pH sensor embedded in a smart urinary catheter.
+                    The application features reading tracking, data filtering, and alerts for healthcare providers when sensor values fall outside the normal range. Additionally, it allows providers to remotely toggle a generated electromagnetic field.
+                    The system follows a layered architecture: the backend is built with a Python Flask server, while the frontend is developed using React Native.
+                    Sensor data is transmitted from an Arduino to the backend server, where it is processed, displayed on the frontend, and stored in an AWS-hosted database.
+                </p>
+                <a href="https://drive.google.com/file/d/1SdmKj6hvfccQ3rksESqPQufndRB4a6dT/view?usp=sharing" class="project-link">View Demo</a>
+                <div class="project-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Flask</span>
+                    <span class="tag">Javascript</span>
+                    <span class="tag">React Native</span>
+                    <span class="tag">AWS RDS</span>
+                    <span class="tag">MySQL</span>
+                </div>
+            </div>
+        </div>
+        <div class="project-card project-card-right">
+            <img src="images/printer.png" alt="Thermal Printer" class="project-image" />
+            <div class="project-content">
+                <h2 class="project-title">Tickect Printing System</h2>
+                <p class="project-description"> I developed a desktop application using Java and JavaFX for a tortilla factory to streamline the customer waiting process. 
+                    The system prints sequential tickets for clients placing orders, allowing them to track their turn while waiting. It features an intuitive user interface 
+                    for managing ticket numbers and integrates with thermal receipt printers using ESC/POS commands for direct communication and custom formatting. Built with 
+                    Maven and tested using JUnit, the application ensured reliable performance in a fast-paced, customer-facing environment.</p>
+                <a href="https://github.com/dCastro018/TicketPrinter.git" class="project-link">View Source</a>
+                <div class="project-tags">
+                    <span class="tag">Java</span>
+                    <span class="tag">Maven</span>
+                    <span class="tag">Junit</span>
+                    <span class="tag">JavaFX</span>
+                    <span class="tag">ESC/POS</span>
+                </div>
+            </div>
+        </div>
+        <div class="project-card project-card-left">
+            <img src="images/usams.png" alt="UASAMS UI" class="project-image" />
+            <div class="project-content">
+                <h2 class="project-title">Scholarship and Application Management System</h2>
+                <p class="project-description">
+                   This is a full-stack Scholarship Management System to streamline the process of matching students with eligible scholarships. 
+                   The application uses a PostgreSQL database, a Node.js and Express backend, and a React frontend. It supports detailed scholarship criteria such as GPA, 
+                   major, year, and ethnicity, allowing students to view ranked matches and apply directly through the platform. The system includes tools for reviewers 
+                   to score applications and for administrators to manage users and data. I implemented a GitLab CI/CD pipeline to automate testing, building, and 
+                   deployment, ensuring consistent and efficient development workflows. Jest was used to create unit and integration tests, improving reliability and 
+                   maintainability across both frontend and backend components.
+                </p>
+                <a href="https://drive.google.com/file/d/1SdmKj6hvfccQ3rksESqPQufndRB4a6dT/view?usp=sharing" class="project-link">View Demo</a>
+                <div class="project-tags">
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Node.js</span>
+                    <span class="tag">Express</span>
+                    <span class="tag">React</span>
+                    <span class="tag">Postgres</span>
+                    <span class="tag">Docker</span>
+                    <span class="tag">Gitlab CI/CD</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <section class="contact-section" id="contact">
+        <h1>Contact Me</h1>
+       <form id="contact-form" action="https://formspree.io/f/xgvkbbjd" method="POST" class="contact-form">
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Your Name" required />
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Your Email" required />
+            </div>
+            <div class="form-group">
+                <textarea name="message" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="form-button">Send Message</button>
+        </form>
+        <p id="formMessage" style="display: none; color: rgb(6, 0, 8); font-family: manjari; margin-top: 20px;"> Message sent! I’ll get back to you soon.</p>
+    </section>
+    <footer class="custom-footer">
+         <div class="footer-container">
+    <div class="footer-section">
+      <h5>About Me</h5>
+      <p>I’m Dalia Castro, a software engineer focused on building secure, intuitive applications with real-world impact.</p>
+    </div>
+    <div class="footer-section">
+    </div>
+    <div class="footer-section">
+      <h5>Connect</h5>
+      <div class="social-icons">
+        <a href="https://github.com/dCastro018">Github<i class="bi bi-linkedin"></i></a>
+        <a href="https://linkedin.com/in/dalia-castro">LinkedIn<i class="bi bi-github"></i></a>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Dalia Castro. All rights reserved.</p>
+  </div>
+</footer>
+
 </body>
+<script>
+  const form = document.getElementById('contact-form');
+
+  const message = document.getElementById('formMessage');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault(); 
+    const formData = new FormData(form);
+
+    try {
+      const res = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        form.reset(); 
+        message.style.display = 'block'; 
+      } else {
+        alert("Oops! Something went wrong.");
+      }
+    } catch (err) {
+      alert("Submission failed.");
+    }
+  });
+</script>
+
 </html>
