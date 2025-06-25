@@ -485,3 +485,94 @@ footer hr {
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   margin-top: 40px;
 }
+/* -------------------- Responsive Styles -------------------- */
+
+/* For tablets and below */
+@media (max-width: 1024px) {
+  .main-container {
+    flex-direction: column;
+    height: auto;
+    text-align: center;
+  }
+
+  .left, .right {
+    padding: 40px 20px;
+    width: 100%;
+  }
+
+  .project-card {
+    flex-direction: column !important;
+    width: 100%;
+  }
+
+  .project-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 10px;
+  }
+
+  nav a {
+    padding: 10px;
+    font-size: 20px;
+  }
+
+  .timeline {
+    padding-left: 20px;
+  }
+
+  .timeline_section h1,
+  .project_section h1,
+  .contact-section h1 {
+    font-size: 36px;
+  }
+}
+
+/* For mobile devices */
+@media (max-width: 600px) {
+  .animated-title {
+    font-size: 36px;
+  }
+
+  .left p {
+    font-size: 18px;
+  }
+
+  .project-title {
+    font-size: 24px;
+  }
+
+  .project-description {
+    font-size: 16px;
+  }
+
+  .project-link {
+    font-size: 16px;
+  }
+
+  .tag {
+    font-size: 12px;
+    padding: 4px 10px;
+  }
+
+  .form-button {
+    font-size: 16px;
+  }
+
+  .footer-section {
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}
